@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
 const fs = require('fs')
 require('dotenv').config()
-const {createObjectCsvWriter} = require('csv-writer');
+const {createObjectCsvWriter} = require('csv-writer')
 
 const OUTPUT_PATH = "retty"
 let BROWSER
@@ -136,7 +136,7 @@ async function getNewPage(page) {
  */
 async function csvWrite(data, pageNumber) {
   if (!fs.existsSync(OUTPUT_PATH)) {
-    fs.mkdirSync(OUTPUT_PATH);
+    fs.mkdirSync(OUTPUT_PATH)
   }
   var exec = require('child_process').exec
   exec(`touch ${OUTPUT_PATH}/page${pageNumber}.csv`, function(err, stdout, stderr) {
@@ -158,10 +158,10 @@ async function csvWrite(data, pageNumber) {
     ],
     encoding:'utf8',
     append :false,
-  });
+  })
   csvWriter.writeRecords(data)
   .then(() => {
-      console.log('...Done');
+      console.log('...Done')
   })
 }
 
